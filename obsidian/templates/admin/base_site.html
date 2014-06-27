@@ -1,0 +1,8 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | Obsidian site admin {% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="/admin"><img src="{% get_static_prefix %}admin_header.png"alt="Obsidian administration"></a></h1>
+{% endblock %}

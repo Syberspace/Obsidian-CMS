@@ -1,0 +1,18 @@
+{% if imprint_config %}
+	<table>
+		{% if site_config %}
+			<tr><td>Owner</td><td>{{site_config.site_admin}}</td></tr>
+		{% endif %}
+		    <tr><td>Address</td><td>{{imprint_config.address}}</td></tr>
+		    <tr><td>ZIP/Postal-Code</td><td>{{imprint_config.zipcode}}</td></tr>
+		    <tr><td>City</td><td>{{imprint_config.city}}</td></tr>
+		    <tr><td>State</td><td>{{imprint_config.state}}</td></tr>
+		    <tr><td>Country</td><td>{{imprint_config.country}}</td></tr>
+		    <tr><td>Phone</td><td>{{imprint_config.phone}}</td></tr>
+		{% if site_config %}
+		{% else %}
+			<tr><td>Visible</td><td>{{imprint_config.flag_visible|yesno}}</td></tr>
+		{% endif %}
+	</table>
+{% endif %}
+

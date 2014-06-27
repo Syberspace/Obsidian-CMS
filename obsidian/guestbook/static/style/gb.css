@@ -1,0 +1,49 @@
+/*----------------------*
+*		Guestbook		*
+*-----------------------*/
+
+div.gbentry {
+	border:1px solid black;
+	margin:13px;
+}
+div.gbe_head {
+	background-color:#cccccc;
+	padding:2px 2px 0px 2px;
+}
+
+div.gbe_body {
+	background-color:#eeeeee;
+	padding:2px 2px 0px 2px;
+}
+
+div.gbe_nick {
+	float:left;
+}
+
+div.gbe_time {
+	width:100%;
+	text-align:right;
+}
+
+a.newentry{
+	margin-left:13px;
+}
+
+/*----------------------*
+*			Form		*
+*-----------------------*/
+div.fieldLabel{
+	float:left;
+	width:6em;
+}
+
+div.fieldInput{
+	float:left;
+	margin-right:5px;
+}
+
+div.fieldErrors ul{
+	list-style-type:none;
+	color:red;
+	margin:0;
+}

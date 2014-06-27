@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{site_config.site_name}}</title>
+		<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}style/main.css">
+		{% block extrastyle %}{% endblock %}
+	</head>
+	<body>
+		<div id="container">
+			<div id="headimg">
+				<a href="/"><img src="{% get_static_prefix %}{{site_config.site_header}}" alt="headimg" title="{{site_config.site_name}}"></a>
+			</div>
+			<div id="headnav">
+			{% if list_pages %}
+				<ul>
+					{% for page in list_pages %}
+						{% if page.flag_public %}
+							<li><a href="/page/{{page.short_name}}">{{page.display_name}}</a></li>
+						{% endif %}
+					{% endfor %}
+						<li><a href="/page/guestbook">G&auml;stebuch</a></li>
+					{% if imprint_config.flag_visible%}
+						<li><a href="/page/imprint">Imprint</a></li>
+					{% endif %}
+				</ul>
+			{% else %}
+				<p>
+					Something somewhere went terribly wrong<br>
+					Please check your Database
+				</p>
+				{% comment %}
+					this part of the code should never be rached, because of the predefined "home"-page
+					which cannot be deleted from within the application.
+					if anyone messed up the database this text will show up.
+				{% endcomment %}
+			{% endif %}
+			</div>
+			<div style="clear:both;"></div>
+			<div id="content">
+				{% block content %}you should not see this{% endblock %}
+			</div>
+		</div>
+	</body>
+</html>

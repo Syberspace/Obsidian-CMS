@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% load static %}
+{% block extrastyle %}
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}style/gb.css">
+{% endblock%}
+
+{% block content %}
+	<a class="newentry" href="new">new entry</a>
+	{% for entry in entries %}
+		<div class="gbentry">
+			<div class="gbe_head">
+				<div class="gbe_nick">
+				{% if entry.flag_showmail %}
+					<a href="mailto:{{entry.email}}">{{entry.nickname}}</a>
+				{% else %}
+					{{entry.nickname}}
+				{% endif %}
+				</div>
+				<div class="gbe_time">
+					{{entry.date|date:"d.M.Y"}} {{entry.time|time:"H:i:s"}}
+				</div>
+			</div>
+			<div class="gbe_body">
+				{{entry.text|linebreaksbr}}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

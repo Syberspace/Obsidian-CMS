@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+{% block content %}
+	{% if page %}
+		<p>{{page.content|safe|linebreaksbr}}</p>
+	{% else %}
+		<p>something somewhere went terribly wrong</p>
+	{% endif %}
+{% endblock %}

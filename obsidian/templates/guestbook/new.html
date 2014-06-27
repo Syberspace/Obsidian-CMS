@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block extrastyle %}
+	<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}style/gb.css">
+{% endblock%}
+
+{% block content %}
+	<h3>new entry</h3>
+	<form method="POST">
+		{% csrf_token %}
+		{% for field in form %}
+			<div class="fieldWrapper">
+				<div class="fieldLabel">{{ field.label_tag }}:</div>
+				<div class="fieldInput">{{ field }}</div>
+				<div class="fieldErrors">{{ field.errors }}</div>
+				<div style="clear:both"></div>
+			</div>
+		{% endfor %}
+		<input id="id_submit" type="submit">
+	</form>
+	
+{% endblock %}
